@@ -12,3 +12,7 @@ where:
 - `<tag>` is the current GitHub tag without the "v"
 
 The docker image can be found [here](https://hub.docker.com/r/rzuckerm/ti-basic).
+
+The TI Basic interpreter is written in python 2.7. The code can be found
+[here](https://github.com/rzuckerm/pitybas). It is a fork of
+[this repo](https://github.com/lunixbochs/pitybas).

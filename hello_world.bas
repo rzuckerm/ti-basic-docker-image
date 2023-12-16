@@ -1,1 +1,2 @@
+"ClrHome
 Disp "Hello, world!"
