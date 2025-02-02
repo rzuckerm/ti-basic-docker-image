@@ -1,5 +1,5 @@
 TI-BASIC_VERSION := $(shell cat TI-BASIC_VERSION)
-TI-BASIC_DEPS := $(wildcard TI-BASIC_*)
+TI-BASIC_DEPS := $(wildcard TI-BASIC_*) ti-basic
 DOCKER_TAG_PREFIX := rzuckerm/ti-basic:$(TI-BASIC_VERSION)
 DOCKER_TAG_SUFFIX ?= -dev
 

@@ -1,6 +1,6 @@
 FROM ubuntu:18.04
 
-COPY TI-BASIC_* /tmp/
+COPY TI-BASIC_* ti-basic /tmp/
 RUN apt-get update && \
     apt-get install -y git python2.7 && \
     mkdir -p /opt && \
@@ -12,6 +12,5 @@ RUN apt-get update && \
     apt-get autoremove -y && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* && \
-    ln -s /opt/pitybas/pb.py /usr/local/bin/ti-basic
+    mv /tmp/ti-basic /usr/local/bin/
 ENV PYTHONPATH=/opt/pitybas
-ENV PATH="/opt/pitybas:${PATH}"

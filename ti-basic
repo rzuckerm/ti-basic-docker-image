@@ -1,0 +1,9 @@
+#!/bin/bash
+PROGRAM="$1"
+shift
+if [ "$#" = 0 ]
+then
+    echo '""' | python2.7 /opt/pitybas/pb.py "${PROGRAM}"
+else
+    printf '"%s"\n' "$@" | python2.7 /opt/pitybas/pb.py "${PROGRAM}"
+fi
