@@ -11,5 +11,7 @@ RUN apt-get update && \
     apt-get remove -y git && \
     apt-get autoremove -y && \
     apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
+    rm -rf /var/lib/apt/lists/* && \
+    ln -s /opt/pitybas/pb.py /usr/local/bin/ti-basic
 ENV PYTHONPATH=/opt/pitybas
+ENV PATH="/opt/pitybas:${PATH}"
