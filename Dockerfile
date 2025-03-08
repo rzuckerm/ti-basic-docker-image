@@ -1,16 +1,14 @@
-FROM ubuntu:18.04
+FROM python:2.7.18-slim-buster
 
-COPY TI-BASIC_* ti-basic /tmp/
+COPY TI-BASIC_* /tmp/
+COPY ti-basic /usr/local/bin/
+WORKDIR /opt
 RUN apt-get update && \
-    apt-get install -y git python2.7 && \
-    mkdir -p /opt && \
-    cd /opt && \
+    apt-get install -y git && \
     git clone https://github.com/rzuckerm/pitybas -b v$(cat /tmp/TI-BASIC_VERSION) && \
-    cd pitybas && \
-    find -mindepth 1 -maxdepth 1 '!' '(' -name 'pb.py' -o -name 'pitybas' ')' -exec rm '{}' ';' && \
+    find pitybas -mindepth 1 -maxdepth 1 '!' '(' -name 'pb.py' -o -name 'pitybas' ')' -exec rm '{}' ';' && \
     apt-get remove -y git && \
     apt-get autoremove -y && \
     apt-get clean && \
-    rm -rf /var/lib/apt/lists/* && \
-    mv /tmp/ti-basic /usr/local/bin/
+    rm -rf /var/lib/apt/lists/*
 ENV PYTHONPATH=/opt/pitybas
