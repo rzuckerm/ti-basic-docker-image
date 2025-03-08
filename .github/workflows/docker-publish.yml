@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Log in to docker
         env:
@@ -36,11 +36,11 @@ jobs:
           echo "Tag (without v) is ${VERSION}"
           echo "Docker tag suffix is ${DOCKER_TAG_SUFFIX}"
 
-      - name: Build images
+      - name: Build regular images
         run: make build
 
-      - name: Test images
+      - name: Test regular images
         run: make test
 
       - name: Publish images
-        run: make publish
+        run: make publishx
